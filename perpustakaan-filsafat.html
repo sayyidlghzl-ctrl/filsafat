@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Filsafat Digital</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background: #1b4332;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1b4332, #2d6a4f);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      background: #40916c;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1b4332;
+    }
+
+    /* SECTION */
+    section {
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* SEARCH */
+    .search-box {
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* QUIZ */
+    .quiz {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .quiz button {
+      margin: 5px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1b4332;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* TABLET */
+    @media(max-width:768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+
+    /* HP */
+    @media(max-width:480px) {
+
+      nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul li {
+        margin: 5px 0;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">📚 Filsafat Digital</div>
+
+    <ul>
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#buku">Buku</a></li>
+      <li><a href="#tokoh">Tokoh</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="beranda">
+    <h1>Perpustakaan Filsafat Digital</h1>
+
+    <p>
+      Belajar filsafat dari para pemikir besar dunia
+      seperti Socrates, Plato, Aristoteles, hingga
+      filsuf modern.
+    </p>
+
+    <button onclick="selamatDatang()">
+      Mulai Belajar
+    </button>
+  </section>
+
+  <section>
+    <h2>Cari Buku</h2>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari judul buku..." onkeyup="cariBuku()">
+    </div>
+  </section>
+
+  <section id="buku">
+    <h2>Daftar Buku</h2>
+
+    <div class="grid">
+
+      <div class="card buku">
+        <h3>Dunia Sophie</h3>
+        <p>Jostein Gaarder</p>
+      </div>
+
+      <div class="card buku">
+        <h3>The Republic</h3>
+        <p>Plato</p>
+      </div>
+
+      <div class="card buku">
+        <h3>Meditations</h3>
+        <p>Marcus Aurelius</p>
+      </div>
+
+      <div class="card buku">
+        <h3>Nicomachean Ethics</h3>
+        <p>Aristoteles</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tokoh">
+    <h2>Tokoh Filsafat</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Socrates</h3>
+        <p>Bapak filsafat Barat.</p>
+      </div>
+
+      <div class="card">
+        <h3>Plato</h3>
+        <p>Murid Socrates dan penulis The Republic.</p>
+      </div>
+
+      <div class="card">
+        <h3>Aristoteles</h3>
+        <p>Ahli logika dan etika.</p>
+      </div>
+
+      <div class="card">
+        <h3>Immanuel Kant</h3>
+        <p>Pelopor filsafat modern.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>Quiz Filsafat</h2>
+
+    <div class="quiz">
+
+      <p>
+        Siapa yang dikenal sebagai Bapak Filsafat Barat?
+      </p>
+
+      <br>
+
+      <button onclick="cekJawaban('Socrates')">
+        Socrates
+      </button>
+
+      <button onclick="cekJawaban('Plato')">
+        Plato
+      </button>
+
+      <button onclick="cekJawaban('Aristoteles')">
+        Aristoteles
+      </button>
+
+      <h3 id="hasil" style="margin-top:20px;"></h3>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Perpustakaan Filsafat Digital
+  </footer>
+
+  <script>
+
+    function selamatDatang() {
+      alert("Selamat datang di Perpustakaan Filsafat Digital!");
+    }
+
+    function cekJawaban(jawaban) {
+
+      let hasil = document.getElementById("hasil");
+
+      if (jawaban === "Socrates") {
+        hasil.innerHTML =
+          "✅ Benar! Socrates adalah Bapak Filsafat Barat.";
+      }
+      else {
+        hasil.innerHTML =
+          "❌ Salah! Jawaban yang benar adalah Socrates.";
+      }
+    }
+
+    function cariBuku() {
+
+      let input =
+        document.getElementById("searchInput")
+          .value.toLowerCase();
+
+      let buku =
+        document.getElementsByClassName("buku");
+
+      for (let i = 0; i < buku.length; i++) {
+
+        let judul =
+          buku[i]
+            .getElementsByTagName("h3")[0]
+            .innerText
+            .toLowerCase();
+
+        if (judul.includes(input)) {
+          buku[i].style.display = "block";
+        }
+        else {
+          buku[i].style.display = "none";
+        }
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
